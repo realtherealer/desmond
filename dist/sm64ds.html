@@ -33,9 +33,12 @@ document.getElementById("player").loadURL("../roms/New Super Mario Bros. (Europe
         window.onload = function() {
             setTimeout(function() {
                 document.querySelector("desmond-player").loadURL("../roms/Super Mario 64 DS (Europe) (En,Fr,De,Es,It).nds")
-                document.querySelector("desmond-player").shadowRoot.querySelector("#top").style = "position: fixed;transform: translate(-50%, -50%);width: 30%;left: 50%;top: 30%;height: 40%;";
-
-                document.querySelector("desmond-player").shadowRoot.querySelector("#bottom").style = "position: fixed;transform: translate(-50%, -50%);width: 30%;left: 50%;top: 70%;height: 40%;";
+                //OG Style
+                //document.querySelector("desmond-player").shadowRoot.querySelector("#top").style = "position: fixed;transform: translate(-50%, -50%);width: 30%;left: 50%;top: 30%;height: 40%;";
+                //document.querySelector("desmond-player").shadowRoot.querySelector("#bottom").style = "position: fixed;transform: translate(-50%, -50%);width: 30%;left: 50%;top: 70%;height: 40%;";
+                //New Style
+                document.querySelector("desmond-player").shadowRoot.querySelector("#top").style = "position: fixed; transform: translate(-75%, -35%); width: 50%; left: 50%; top: 30%; height: 70%;";
+                document.querySelector("desmond-player").shadowRoot.querySelector("#bottom").style = "position: fixed; transform: translate(40%, -40%); width: 33%; left: 50%; top: 70%; height: 48%;";
             }, 1000)
         }
     </script>
