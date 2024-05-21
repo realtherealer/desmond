@@ -3176,7 +3176,8 @@ registerProcessor('my-worklet', MyAudioWorklet)`], {type: "text/javascript"}))).
 
             if (emuIsRunning) {
                 if (config.powerSave) {
-                    if (performance.now() - prevRunFrameTime < 32) {
+                    //frames
+                    if (performance.now() - prevRunFrameTime < 64) {
                         return
                     }
                 }
