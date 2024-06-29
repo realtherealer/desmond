@@ -31,15 +31,25 @@ document.getElementById("player").loadURL("../roms/New Super Mario Bros. (Europe
         //}
       
         window.onload = function() {
-            setTimeout(function() {
-                document.querySelector("desmond-player").loadURL("../roms/New Super Mario Bros. (Europe) (En,Fr,De,Es,It).nds")
-                //OG Style
-                //document.querySelector("desmond-player").shadowRoot.querySelector("#top").style = "position: fixed;transform: translate(-50%, -50%);width: 30%;left: 50%;top: 30%;height: 40%;";
-                //document.querySelector("desmond-player").shadowRoot.querySelector("#bottom").style = "position: fixed;transform: translate(-50%, -50%);width: 30%;left: 50%;top: 70%;height: 40%;";
-                //New Style
-                document.querySelector("desmond-player").shadowRoot.querySelector("#top").style = "position: fixed; transform: translate(-75%, -35%); width: 50%; left: 50%; top: 30%; height: 70%;";
-                document.querySelector("desmond-player").shadowRoot.querySelector("#bottom").style = "position: fixed; transform: translate(40%, -40%); width: 33%; left: 50%; top: 70%; height: 48%;";
-            }, 1000)
+            var popup = window.open('Please click the black space otherwise controls will not work','pop','width=200px, height=10px'),
+            popdoc, msg, script;
+            if (popup) {
+                popdoc = popup.document;
+                msg = popdoc.body.appendChild(popdoc.createElement('p'));
+                msg.innerHTML = 'Please, wait until process has finished.';
+                script = popdoc.createElement('script');
+                script.text = '(function () {setTimeout(function () {self.close();}, 3000);}());';
+                popdoc.body.appendChild(script);
+                setTimeout(function() {
+                    document.querySelector("desmond-player").loadURL("../roms/New Super Mario Bros. (Europe) (En,Fr,De,Es,It).nds")
+                    //OG Style
+                    //document.querySelector("desmond-player").shadowRoot.querySelector("#top").style = "position: fixed;transform: translate(-50%, -50%);width: 30%;left: 50%;top: 30%;height: 40%;";
+                    //document.querySelector("desmond-player").shadowRoot.querySelector("#bottom").style = "position: fixed;transform: translate(-50%, -50%);width: 30%;left: 50%;top: 70%;height: 40%;";
+                    //New Style
+                    document.querySelector("desmond-player").shadowRoot.querySelector("#top").style = "position: fixed; transform: translate(-75%, -35%); width: 50%; left: 50%; top: 30%; height: 70%;";
+                    document.querySelector("desmond-player").shadowRoot.querySelector("#bottom").style = "position: fixed; transform: translate(40%, -40%); width: 33%; left: 50%; top: 70%; height: 48%;";
+                }, 1000)
+            }
         }
     </script>
 </body>
