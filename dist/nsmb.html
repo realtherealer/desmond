@@ -25,10 +25,11 @@ document.getElementById("player").loadURL("../roms/New Super Mario Bros. (Europe
     <desmond-player></desmond-player>
     <!--<input type="file" style="position: absolute; transform: translate(-50%, -50%); left: 50%; top: 95%; color: white;"></input>-->
     <h1>AUGames NDS Player: Please click</h1>
-    <button onclick="loadRom()">Click to start game</button>
+    <button onclick="loadRom(event)">Click to start game</button>
     <script src="../dist/desmond.min.js"></script>
     <script>            
-        function loadRom() {
+        function loadRom(event) {
+            event.target.parentNode.removeChild(event.target);
             document.querySelector("desmond-player").loadURL("../roms/New Super Mario Bros. (Europe) (En,Fr,De,Es,It).nds")
             //OG Style
             //document.querySelector("desmond-player").shadowRoot.querySelector("#top").style = "position: fixed;transform: translate(-50%, -50%);width: 30%;left: 50%;top: 30%;height: 40%;";
